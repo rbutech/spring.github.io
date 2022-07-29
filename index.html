@@ -32,13 +32,17 @@
 					<a href="./spring-boot.html"><span class="fa fa-sticky-note mr-3"></span> Spring Boot</a>
 				</li>
 				<li>
+					<a href="./hibernate.html"><span class="fa fa-sticky-note mr-3"></span> Hibernate ORM</a>
+				</li>
+				<li>
 					<a href="./rbu-projects.html"><span class="fa fa-sticky-note mr-3"></span> rbu projects</a>
 				</li>
 				<li>
 					<a href="./rbu-subcription.html"><span class="fa fa-sticky-note mr-3"></span> Subcriptions</a>
 				</li>
 				<li>
-					<a href="https://www.rbutech.in" target="new"><span class="fa fa-paper-plane mr-3"></span> contact us</a>
+					<a href="https://www.rbutech.in" target="new"><span class="fa fa-paper-plane mr-3"></span> contact
+						us</a>
 				</li>
 
 			</ul>
@@ -127,7 +131,23 @@
 		<div>
 			<h6> For any queries call us on 9182662482 or 7207119012</h6>
 			<h6>rbutechnologies@gmail.com </h6>
-
+			<table>
+				<tr>
+					<td>NAME:</td>
+					<td><input type="text" id="name" /> </td>
+				</tr>
+				<tr>
+					<td>EMAIL:</td>
+					<td><input type="email" id="email" /> </td>
+				</tr>
+				<tr>
+					<td>Enquiry Description</td>
+					<td><input type="desc" id="desc" /> </td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="button" id="button" value="Signup" /> </td>
+				</tr </table>
 
 		</div>
 
@@ -137,6 +157,32 @@
 	<script src="js/popper.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/main.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("#button").click(function () {
+				var name = $("#name").val();
+				var email = $("#email").val();
+				var desc = $("#desc").val();
+
+				Email.send({
+					Host: "smtp.gmail.com",
+					Username: "rbumailrbumail@gmail.com",
+					Password: "rbumail@123",
+					To: 'rbutechnologies@gmail.com',
+					From: "rbumailrbumail@gmail.com",
+					Subject: "Name:"+name+"Email:"+email,
+					Body: "desc:"+desc,
+				}).then(function (message) {
+						alert("Thanks for your intrest we get back to you");
+					});
+			});
+		});
+	</script>
+
+
 </body>
 
 </html>
